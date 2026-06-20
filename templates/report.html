@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h2><i class="fas fa-chart-bar me-2"></i>System Reports</h2>
+</div>
+
+<div class="row">
+    <div class="col-md-4 mb-4">
+        <div class="card text-center">
+            <div class="card-body">
+                <i class="fas fa-users fa-3x text-primary mb-3"></i>
+                <h3>{{ total_couriers }}</h3>
+                <p class="card-text">Total Couriers</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 mb-4">
+        <div class="card text-center">
+            <div class="card-body">
+                <i class="fas fa-box fa-3x text-success mb-3"></i>
+                <h3>{{ total_shipments }}</h3>
+                <p class="card-text">Total Shipments</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 mb-4">
+        <div class="card text-center">
+            <div class="card-body">
+                <i class="fas fa-user-check fa-3x text-info mb-3"></i>
+                <h3>{{ available_couriers }}/{{ total_couriers }}</h3>
+                <p class="card-text">Available Couriers</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="card mb-4">
+    <div class="card-header">
+        <h5 class="card-title mb-0">Shipments by Status</h5>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            {% for status, count in status_counts.items() %}
+            <div class="col-md-4 col-6 mb-3">
+                <div class="d-flex justify-content-between align-items-center p-3 border rounded">
+                    <span class="badge 
+                        {% if status == 'Delivered' %}bg-success
+                        {% elif status == 'Cancelled' %}bg-danger
+                        {% elif status == 'In Transit' %}bg-primary
+                        {% elif status == 'Out for Delivery' %}bg-warning
+                        {% else %}bg-secondary{% endif %}">
+                        {{ status }}
+                    </span>
+                    <span class="fw-bold">{{ count }}</span>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-header">
+        <h5 class="card-title mb-0">Quick Actions</h5>
+    </div>
+    <div class="card-body">
+        <div class="d-grid gap-2 d-md-flex">
+            <a href="{{ url_for('couriers') }}" class="btn btn-primary me-md-2">
+                <i class="fas fa-users me-2"></i>Manage Couriers
+            </a>
+            <a href="{{ url_for('shipments') }}" class="btn btn-success me-md-2">
+                <i class="fas fa-box me-2"></i>Manage Shipments
+            </a>
+            <a href="{{ url_for('add_shipment') }}" class="btn btn-info">
+                <i class="fas fa-plus me-2"></i>Create Shipment
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}

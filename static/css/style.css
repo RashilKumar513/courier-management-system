@@ -1,0 +1,42 @@
+body {
+    background-color: #f8f9fa;
+}
+
+.hero-section {
+    background: linear-gradient(135deg, #6c5ce7 0%, #a29bfe 100%);
+    color: white;
+    border-radius: 15px;
+}
+
+.card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.table th {
+    border-top: none;
+    font-weight: 600;
+}
+
+.btn {
+    border-radius: 6px;
+}
+
+.navbar-brand {
+    font-weight: 700;
+}
+
+.alert {
+    border-radius: 8px;
+}
+
+.badge {
+    font-size: 0.8em;
+    padding: 0.5em 0.75em;
+}

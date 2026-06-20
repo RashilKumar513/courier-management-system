@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-8 mx-auto text-center">
+        <div class="hero-section p-5 rounded-lg bg-light mb-5">
+            <h1 class="display-4 mb-4">Welcome to Courier Management System</h1>
+            <p class="lead">Efficiently manage your couriers and shipments with our comprehensive system</p>
+            <div class="mt-5">
+                <a href="{{ url_for('couriers') }}" class="btn btn-primary btn-lg me-3">
+                    <i class="fas fa-users me-2"></i>Manage Couriers
+                </a>
+                <a href="{{ url_for('shipments') }}" class="btn btn-success btn-lg">
+                    <i class="fas fa-box me-2"></i>Manage Shipments
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-5">
+    <div class="col-md-4 mb-4">
+        <div class="card text-center h-100">
+            <div class="card-body">
+                <i class="fas fa-users fa-3x text-primary mb-3"></i>
+                <h5 class="card-title">Courier Management</h5>
+                <p class="card-text">Add, view, and manage your couriers with ease.</p>
+                <a href="{{ url_for('couriers') }}" class="btn btn-outline-primary">View Couriers</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 mb-4">
+        <div class="card text-center h-100">
+            <div class="card-body">
+                <i class="fas fa-box fa-3x text-success mb-3"></i>
+                <h5 class="card-title">Shipment Tracking</h5>
+                <p class="card-text">Create and track shipments from start to delivery.</p>
+                <a href="{{ url_for('shipments') }}" class="btn btn-outline-success">View Shipments</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 mb-4">
+        <div class="card text-center h-100">
+            <div class="card-body">
+                <i class="fas fa-chart-bar fa-3x text-info mb-3"></i>
+                <h5 class="card-title">Reports & Analytics</h5>
+                <p class="card-text">Get insights into your operations with detailed reports.</p>
+                <a href="{{ url_for('report') }}" class="btn btn-outline-info">View Reports</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
